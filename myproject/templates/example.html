@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+    {% block title %}
+      example
+    {% endblock title %}
+      </title>
 </head>
 <body>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +44,9 @@
           </ul>
         </div>
       </nav>
-    
+      {% block c %}
+      this is example
+    {% endblock c %}
+    <h1>eeeeeeeee</h1>
 </body>
 </html>
