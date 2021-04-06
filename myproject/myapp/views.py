@@ -17,7 +17,7 @@ def intro(request,name,age):
     return JsonResponse(mydict)
 
 def index(request):
-    return render(request,'index.html')
+    return render(request,'example.html')
     
 def second(request):
     return render(request,'second.html')
