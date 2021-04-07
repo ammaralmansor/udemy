@@ -22,4 +22,23 @@ def example(request):
 def index(request):
     return render(request,'index.html')
 
+def third(request):
+    name = "ammar "
+    material = ["c++" , "java" , "python"]
+    num1 , num2 = 3 , 5
+    ans = num1>num2
+    mydict = {
+        "name" : name,
+        "material" : material,
+        "ans" : ans
+          }
+    return render(request,'third.html',context=mydict)
+
+
+def imagepage(request):
+    return render(request,'imagepage.html')
+
+
+def imagepage2(request):
+    return render(request,'imagepage2.html')
 

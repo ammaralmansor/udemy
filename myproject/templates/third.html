@@ -1,0 +1,40 @@
+{% extends 'example.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %}
+        third
+        {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    {% block c %}
+    this is third
+    <h1>third</h1>
+    <h1>hi {{name}}</h1>
+    <ul>
+        {% for m in material %}
+        <li>{{m}}</li>
+        {% endfor %}
+
+        {% if ans %}
+        <h1>bigger</h1>
+        {%else%}
+        <h2>smaller</h2>
+        {% endif %}
+
+    </ul>
+    {% endblock c %}
+
+
+</body>
+
+</html>
