@@ -1,3 +1,4 @@
+.....html...............................................
 {% extends 'example.html' %}
 {% load static %}
 <!DOCTYPE html>
@@ -6,7 +7,7 @@
 <head>
     <title>
         {% block title %}
-        image page 2
+        image page 3
         {% endblock %}
     </title>
     <meta charset="UTF-8">
@@ -18,15 +19,22 @@
 <body>
 
     {% block c %}
-    this is images page
+    this is images page 3
     <div class="container-fluid">
         <div class="row">
+
+            {% if var %}
             <div class="clo-md-6">
                 <img src="{% static 'images\django.png' %}" alt="Responsive" class="img-fluid">
             </div>
+            {% else %}
             <div class="clo-md-6">
                 <img src="{% static 'images\python.png' %}" alt="Responsive" class="img-fluid">
             </div>
+            {% endif %}
+
+
+
         </div>
     </div>
 
@@ -36,3 +44,18 @@
 </body>
 
 </html>
+
+....views...............................................
+def imagepage3(request,logo):
+    logo = str(logo).lower()
+    if logo == 'django':
+        var =True
+    else:
+        var=False
+
+    mydict = {
+        "var": var
+    }
+    return render(request,'imagepage3.html',context=mydict)
+.....url................................................
+ path('imagepage3/<str:logo>',views.imagepage3,name="imagepage3"),

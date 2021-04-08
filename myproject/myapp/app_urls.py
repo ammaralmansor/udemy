@@ -9,4 +9,5 @@ urlpatterns = [
     path('third',views.third,name="third"),
     path('imagepage',views.imagepage,name="imagepage"),
     path('imagepage2',views.imagepage2,name="imagepage2"),
+    path('passcolor/<str:color>',views.passcolor,name="passcolor"),
 ]

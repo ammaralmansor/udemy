@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpRequest,HttpResponse,JsonResponse
 # Create your views here.
 
-
 def about(request):
     return HttpResponse("About")
 
@@ -38,7 +37,13 @@ def third(request):
 def imagepage(request):
     return render(request,'imagepage.html')
 
-
 def imagepage2(request):
     return render(request,'imagepage2.html')
 
+def passcolor(request,color):
+    color = str(color).lower()
+    mydict = {
+        "color": color
+    }
+    print(color)
+    return render(request,'passcolor.html',context=mydict)

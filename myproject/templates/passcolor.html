@@ -6,7 +6,7 @@
 <head>
     <title>
         {% block title %}
-        image page 2
+        image page 3
         {% endblock %}
     </title>
     <meta charset="UTF-8">
@@ -15,18 +15,16 @@
 
 </head>
 
-<body>
+
+{% block body %}
+
+<body class="bg-{{color}}">
 
     {% block c %}
-    this is images page
+    this is images page 5
     <div class="container-fluid">
-        <div class="row">
-            <div class="clo-md-6">
-                <img src="{% static 'images\django.png' %}" alt="Responsive" class="img-fluid">
-            </div>
-            <div class="clo-md-6">
-                <img src="{% static 'images\python.png' %}" alt="Responsive" class="img-fluid">
-            </div>
+        <div class="row bg-">
+
         </div>
     </div>
 
@@ -34,5 +32,6 @@
 
 
 </body>
+{% endblock body %}
 
 </html>
