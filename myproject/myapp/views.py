@@ -45,5 +45,5 @@ def passcolor(request,color):
     mydict = {
         "color": color
     }
-    print(color)
+    
     return render(request,'passcolor.html',context=mydict)
