@@ -37,13 +37,17 @@ def third(request):
 def imagepage(request):
     return render(request,'imagepage.html')
 
-def imagepage2(request):
-    return render(request,'imagepage2.html')
+def imagepage2(request,logo):
+    logo = str(logo).lower()
+    mydict ={"logo": logo}
+    return render(request,'imagepage2.html',context=mydict)
 
 def passcolor(request,color):
     color = str(color).lower()
     mydict = {
         "color": color
     }
-    
     return render(request,'passcolor.html',context=mydict)
+
+def form(request):
+    return render(request,'form.html')

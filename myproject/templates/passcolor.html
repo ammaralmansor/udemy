@@ -6,7 +6,7 @@
 <head>
     <title>
         {% block title %}
-        image page 3
+            Pass Color {{color}}
         {% endblock %}
     </title>
     <meta charset="UTF-8">
@@ -16,11 +16,11 @@
 </head>
 
 
-{% block body %}
+{% block c %}
 
 <body class="bg-{{color}}">
     <h1>this is my pass color page</h1>
 </body>
-{% endblock body %}
+{% endblock c %}
 
 </html>

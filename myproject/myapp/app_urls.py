@@ -8,6 +8,7 @@ urlpatterns = [
     path('example',views.example,name="example"),
     path('third',views.third,name="third"),
     path('imagepage',views.imagepage,name="imagepage"),
-    path('imagepage2',views.imagepage2,name="imagepage2"),
+    path('imagepage2/<str:logo>',views.imagepage2,name="imagepage2"),
     path('passcolor/<str:color>',views.passcolor,name="passcolor"),
+    path('form',views.form,name="form"),
 ]
