@@ -7,7 +7,29 @@
 
 <body>
 
-{% block c %}
-<h1>Form</h1>
-{% endblock c %}
+    {% block c %}
+    <h1 class="container text-center">My Form</h1>
+    <div class="container w-75 mt-5">
+        <form method="POST" action="{% url 'submit' %}">
+            {% csrf_token %}
+            <input class="form-control-plaintext align-baseline" type="text" placeholder="Ready.." readonly>
+            <div class="form-group">
+                <label>text</label>
+                <input class="form-control" type="text" placeholder="enter your text" name="t1" id="t1">
+            </div>
+
+            <div class="form-group">
+                <label>plaintext</label>
+                <input class="form-control" type="text" placeholder="enter your text" name="t2" id="t2">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" style="margin: 0 auto; display: block;">submit</button>
+            </div>
+
+
+        </form>
+    </div>
+
+    {% endblock c %}
 </body>

@@ -11,4 +11,5 @@ urlpatterns = [
     path('imagepage2/<str:logo>',views.imagepage2,name="imagepage2"),
     path('passcolor/<str:color>',views.passcolor,name="passcolor"),
     path('form',views.form,name="form"),
+    path('submit',views.submit,name="submit"),
 ]

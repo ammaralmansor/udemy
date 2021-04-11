@@ -51,3 +51,11 @@ def passcolor(request,color):
 
 def form(request):
     return render(request,'form.html')
+
+def submit(request):
+    mysubmit={
+        "t1": request.GET.get('t1'),
+        "t2": request.GET.get('t2'),
+        "method" : request.method
+        }
+    return JsonResponse(mysubmit)
