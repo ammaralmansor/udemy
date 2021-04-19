@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest,HttpResponse,JsonResponse
+from . import form as f
 # Create your views here.
 
 def about(request):
@@ -61,4 +62,24 @@ def submit(request):
     return JsonResponse(mysubmit)
 
 def form2(request):
-    return HttpResponse("hello world")
+    if request.method == 'POST':
+        mform = f.Feedback(request.POST)
+        if mform.is_valid():
+            title = request.POST['title']
+            subject = request.POST['subject']
+            print(subject)
+            var =str("from submitted " + str(request.method))
+            return HttpResponse(var)
+        else:
+            mform = f.Feedback()
+            myd={"form": mform}
+            return render(request,'form2.html',context=myd)
+            
+    elif request.method == 'GET':
+        mform = f.Feedback()
+        myd={
+            "form": mform
+        }
+        return render(request,'form2.html',context=myd)
+    else:
+        pass

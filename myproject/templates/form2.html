@@ -1,0 +1,36 @@
+{% extends 'example.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        form.py
+        {% endblock title %}
+    </title>
+
+</head>
+
+<body>
+
+
+    {% block c %}
+    <div class="col-md-6" style="margin: 0 auto;">
+        <form method="GET">
+            {% csrf_token %}
+            {{form}}
+            <br>
+            <button type="submit" class="btn btn-primary" style="margin:1rem auto 0 auto;display: block;">Submit</button>
+        </form>
+    </div>
+    {% endblock c %}
+
+
+
+
+</body>
+
+</html>
