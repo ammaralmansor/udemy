@@ -59,3 +59,6 @@ def submit(request):
         "method" : request.method
         }
     return JsonResponse(mysubmit)
+
+def form2(request):
+    return HttpResponse("hello world")

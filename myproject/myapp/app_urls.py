@@ -12,4 +12,5 @@ urlpatterns = [
     path('passcolor/<str:color>',views.passcolor,name="passcolor"),
     path('form',views.form,name="form"),
     path('submit',views.submit,name="submit"),
+    path('form2',views.form2,name="form2"),
 ]
