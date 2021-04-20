@@ -62,24 +62,38 @@ def submit(request):
     return JsonResponse(mysubmit)
 
 def form2(request):
-    if request.method == 'POST':
-        mform = f.Feedback(request.POST)
-        if mform.is_valid():
-            title = request.POST['title']
-            subject = request.POST['subject']
-            print(subject)
-            var =str("from submitted " + str(request.method))
-            return HttpResponse(var)
-        else:
-            mform = f.Feedback()
-            myd={"form": mform}
-            return render(request,'form2.html',context=myd)
-            
-    elif request.method == 'GET':
-        mform = f.Feedback()
-        myd={
-            "form": mform
+    mform = f.Feedback(request.POST)
+    if mform.is_valid():
+        title = request.POST['title']
+        subject = request.POST['subject']
+        myd ={
+            "form":f.Feedback(),
+            "valid":True
         }
-        return render(request,'form2.html',context=myd)
+        print("if")
+        if title != title.upper():
+            myd['bg']='warning'
+            myd['success']=False
+            myd['msg']='failer in submitted'
+            print("if if ")
+            return render(request,'form2.html',context=myd)
+
+        else:
+            myd['bg']='success'
+            myd['success']=True
+            myd['msg']='Form Submiited'
+            myd["valid"]=True
+            print("if else")
+            return render(request,'form2.html',context=myd)
+
     else:
-        pass
+        mform = f.Feedback(request.POST)
+        myd ={
+                "form":f.Feedback(),
+            }
+        myd["valid"]=False    
+
+        print("else")
+        return render(request,'form2.html',context=myd)
+
+        
