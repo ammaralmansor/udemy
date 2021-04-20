@@ -20,13 +20,7 @@
     {% block c %}
     <div class="col-md-6" style="margin: 0 auto;">
         {% if valid == True %}
-        <h1>hi</h1>
-            <div class="alert alert-{{bg}} alert-dismissible fade show" role="alert">
-                <strong>{{msg}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-        </div>
+        {% include 'parts/alert.html' %}
         {% endif %}
 
 

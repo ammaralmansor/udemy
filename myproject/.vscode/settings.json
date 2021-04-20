@@ -1,5 +1,6 @@
 {
     "git.ignoreLimitWarning": true,
     "terminal.integrated.shell.windows": "C:\\Users\\ammar\\Documents\\cmder\\vendor\\git-for-windows\\bin\\sh.exe",
+    "python.pythonPath": "C:\\Users\\ammar\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
     //"terminal.integrated.shellArgs.windows": "C:\\Users\\ammar\\Documents\\cmder\\vendor\\git-for-windows\\bin\\batch.exe",
 }
