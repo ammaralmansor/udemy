@@ -19,10 +19,13 @@
 
     {% block c %}
     <div class="col-md-6" style="margin: 0 auto;">
-        {% if valid == True %}
-        {% include 'parts/alert.html' %}
+        {% if error == True %}
+            {% for m, t in errormsg %}
+                {% include 'parts/alerterror.html' %}
+            {% endfor %}
+        {% elif success == True %}
+            {% include 'parts/alertsuccess.html' %}
         {% endif %}
-
 
         <form method="POST">
             {% csrf_token %}

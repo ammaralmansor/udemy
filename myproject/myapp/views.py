@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from . import form as f
+import re
 # Create your views here.
 
 
@@ -74,35 +75,56 @@ def submit(request):
 
 def form2(request):
     mform = f.Feedback(request.POST)
+
     if mform.is_valid():
+
         title = request.POST['title']
         subject = request.POST['subject']
+        email = request.POST['email']
+        phone = request.POST['phone']
         myd = {
             "form": f.Feedback(),
-            "valid": True
         }
-        print("if")
-        if title != title.upper():
-            myd['bg'] = 'warning'
-            myd['success'] = False
-            myd['msg'] = 'failer in submitted'
-            print("if if ")
-            return render(request, 'form2.html', context=myd)
 
-        else:
-            myd['bg'] = 'success'
-            myd['success'] = True
-            myd['msg'] = 'Form Submiited'
-            myd["valid"] = True
-            print("if else")
-            return render(request, 'form2.html', context=myd)
+        errorflag = False
+        Error = []
+
+        if title != title.upper():
+
+            errorflag = True
+            errormsg = "Title should be in Capital"
+            title_tips = "eig: TITLE"
+            title_tuple = (errormsg, title_tips)
+            Error.append(title_tuple)
+
+        email_patt = "^[a-z][a-zA-Z0-9]+@[a-z]+.com$"
+
+        if not re.search(email_patt, email):
+
+            errorflag = True
+            errormsg = "Not a valid Email Address"
+            email_tips = "eig: ammar123@gmail.com"
+            email_tuple = (errormsg, email_tips)
+            Error.append(email_tuple)
+
+        phone_patt = "^00963[0-9]{9}"
+        if not re.search(phone_patt, phone):
+
+            errorflag = True
+            errormsg = "Not a vslid Phone "
+            phone_tips = "eig: 00963987654321"
+            phone_tuple = (errormsg, phone_tips)
+            Error.append(phone_tuple)
+
+        if errorflag == False:
+            myd["success"] = True
+            myd["successmsg"] = "Success Submitted"
+
+        myd["error"] = errorflag
+        myd["errormsg"] = Error
+        return render(request, 'form2.html', context=myd)
 
     else:
         mform = f.Feedback(request.POST)
-        myd = {
-            "form": f.Feedback(),
-        }
-        myd["valid"] = False
-
-        print("else")
+        myd = {"form": f.Feedback()}
         return render(request, 'form2.html', context=myd)
