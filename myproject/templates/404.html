@@ -1,0 +1,28 @@
+{% extends 'example.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Form Page
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    {% block c %}
+    <div class="jumbotron">
+        <h1 class="display-4">404 Error Page</h1>
+        <p class="lead">Soory , this page is missing or does not exist</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="{% url 'index' %}" role="button">Go To Our Home Page</a>
+    </div>
+
+    {% endblock c %}
+</body>
+
+</html>

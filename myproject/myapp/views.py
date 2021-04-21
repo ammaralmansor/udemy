@@ -4,6 +4,8 @@ from . import form as f
 import re
 # Create your views here.
 
+def error_404_view(request,exception):
+    return render(request,'404.html')
 
 def about(request):
     return HttpResponse("About")
